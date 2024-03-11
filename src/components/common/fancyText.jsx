@@ -1,7 +1,7 @@
-import { getRandomData } from '@/network/services';
+import { getPosts } from '@/network/services/posts';
 
 const FancyText = async () => {
-  const randomData = await getRandomData();
+  const randomData = await getPosts();
 
   return (
     <>

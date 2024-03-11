@@ -1,6 +1,6 @@
 'use client';
 
-import { initializeConfigStore } from '@/stores/configStore';
+import { initializeConfigStore } from '@/stores/zustand/configStore';
 import { createContext, useContext, useRef } from 'react';
 import { useStore } from 'zustand';
 

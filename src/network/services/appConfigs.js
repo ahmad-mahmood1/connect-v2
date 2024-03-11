@@ -44,10 +44,10 @@ export const getPremiumHouseData = async () => {
     }
 
     let isLoggedIn = false;
-    const sessionInfo = await fetchSessionInfo();
-    if (sessionInfo?.user?.userID) {
-      isLoggedIn = true;
-    }
+    // const sessionInfo = await fetchSessionInfo();
+    // if (sessionInfo?.user?.userID) {
+    //   isLoggedIn = true;
+    // }
     const premiumDataRes = await customFetch({
       url: `https://${houseUserName}.pl.stage.invaluable.com/wp-json/invaluable/v1/data`,
       query: {
@@ -60,18 +60,4 @@ export const getPremiumHouseData = async () => {
   } catch (error) {
     console.error('error in getPremiumHouseData call ====>> ', error);
   }
-};
-
-export const getRandomQuote = async () => {
-  const randomData = await fetch('https://dummyjson.com/quotes/random', { next: { revalidate: 30 } });
-  return randomData.json();
-};
-
-export const getRandomData = async () => {
-  const randomData = await customFetch({
-    url: `https://dummyjson.com/todos/random`,
-    options: { cache: 'no-store' },
-  });
-
-  return randomData;
 };

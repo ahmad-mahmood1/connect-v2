@@ -1,6 +1,6 @@
 'use client';
 
-import { initializeCatalogStore } from '@/stores/catalogSore';
+import { initializeCatalogStore } from '@/stores/zustand/catalogStore';
 import { createContext, useContext, useRef } from 'react';
 import { useStore } from 'zustand';
 

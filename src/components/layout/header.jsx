@@ -1,4 +1,4 @@
-import { getPremiumHouseData } from '@/network/services';
+import { getPremiumHouseData } from '@/network/services/appConfigs';
 import { extractMetadataFromHTML } from '@/utils';
 
 const PremiumHeader = async () => {

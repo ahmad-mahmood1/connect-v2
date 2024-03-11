@@ -1,4 +1,4 @@
-import { getPremiumHouseData } from '@/network/services';
+import { getPremiumHouseData } from '@/network/services/appConfigs';
 import { wrapAndDeferScripts } from '@/utils';
 
 const PremiumFooter = async () => {

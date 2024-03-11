@@ -13,7 +13,6 @@ export async function customFetch({ url, method = 'get', headers = {}, options =
       .query(query);
 
     let res = await api[method.toLowerCase()](data ?? undefined).res(res => {
-      console.log('===  res:', res.headers.get('content-type'));
       return res.json();
     });
 

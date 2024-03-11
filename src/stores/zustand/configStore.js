@@ -1,4 +1,3 @@
-import { getRandomData } from '@/network/services';
 import { createStore } from 'zustand/vanilla';
 
 const defaultConfigStore = () => {
@@ -14,11 +13,5 @@ export const initializeConfigStore = (preloadedState = {}) => {
     ...defaultConfigStore(),
     ...preloadedState,
     updateCount: () => set(state => ({ count: state.count + 1 })),
-    addRandomData: async () => {
-      let data = await getRandomData();
-      set(_ => ({
-        randomData: data,
-      }));
-    },
   }));
 };

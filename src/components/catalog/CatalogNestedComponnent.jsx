@@ -1,21 +1,33 @@
 'use client';
 
+import { getPosts } from '@/network/services/posts';
 import { useCatalogStore } from '@/providers/catalogStoreProvider';
 import { useConfigStore } from '@/providers/configStoreProvider';
+import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 
 function CatalogNestedComponnent() {
-  const state = useCatalogStore(state => state);
-  const houseSettings = useConfigStore(state => state);
+  const catalogState = useCatalogStore(state => state);
+  const state = useConfigStore(state => state);
+  const { data } = useQuery({ queryKey: ['posts'], queryFn: getPosts });
   return (
     <div>
-      <div>Lot Detail</div>
-      <div>{JSON.stringify(state)}</div>
+      <h3>Catalog Detail</h3>
+      <div>{JSON.stringify(catalogState?.product)}</div>
       <hr />
-      <div>House Settings</div>
-      <div>{JSON.stringify(houseSettings)}</div>
+      <h3>House Settings</h3>
+      <div>{JSON.stringify(state?.houseIBSetting)}</div>
 
-      <Link href={'/test'}>Go to test</Link>
+      <hr />
+      <div>
+        <h3>From posts</h3>
+        <div>{JSON.stringify(data?.posts || {})}</div>
+      </div>
+
+      <hr></hr>
+      <Link href={'/posts'}>Go to posts</Link>
+      <hr></hr>
+      <Link href={'/'}>Go to Home</Link>
     </div>
   );
 }

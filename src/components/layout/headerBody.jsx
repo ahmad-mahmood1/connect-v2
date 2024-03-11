@@ -1,4 +1,4 @@
-import { getPremiumHouseData } from '@/network/services';
+import { getPremiumHouseData } from '@/network/services/appConfigs';
 
 const PremiumHeaderBody = async () => {
   const premiumData = await getPremiumHouseData();

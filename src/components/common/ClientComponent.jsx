@@ -3,21 +3,16 @@
 import { useConfigStore } from '@/providers/configStoreProvider';
 
 function ClientComponent() {
-  const { count, updateCount, ...state } = useConfigStore(state => state);
+  const state = useConfigStore(state => state);
 
   return (
     <div>
-      <h3>Client Comp</h3>
-      <div>Data fetched on server and accessed via zustand store preinitialized on server as well</div>
+      <h2>Client Comp</h2>
+      <hr />
       <div>
-        House Info: {state.sellerName} {state.connectType} {state.sellerId}{' '}
+        <h3>House Settings:</h3>
+        {JSON.stringify(state?.houseIBSetting || {})}
       </div>
-      <div>
-        House Settings:
-        {JSON.stringify(state.houseIBSetting || {})}
-      </div>
-      <div>Count: {count}</div>
-      <button onClick={updateCount}>Update Count</button>
     </div>
   );
 }
