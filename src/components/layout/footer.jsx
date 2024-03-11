@@ -1,5 +1,5 @@
-import { getPremiumHouseData } from '@/network/services/appConfigs';
-import { wrapAndDeferScripts } from '@/utils';
+import { wrapAndDeferScripts } from '@/lib/utils';
+import { getPremiumHouseData } from '@/services/app';
 
 const PremiumFooter = async () => {
   let premiumData = { footer: '' };

@@ -1,9 +1,8 @@
 import PremiumFooter from '@/components/layout/footer';
 import PremiumHeader from '@/components/layout/header';
 import PremiumHeaderBody from '@/components/layout/headerBody';
-import { getCustomHouseSettings } from '@/network/services/appConfigs';
-import { ConfigStoreProvider } from '@/providers/configStoreProvider';
-import ReactQueryProvider from '@/providers/reactQueryClientProvider';
+import { ConfigStoreProvider } from '@/providers/appConfig/provider';
+import { getCustomHouseSettings } from '@/services/app';
 import '@/styles/globals.scss';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -26,14 +25,12 @@ export default async function RootLayout({ children }) {
         {/* <Suspense fallback={<Skeleton count={3} />}> */}
         <PremiumHeaderBody />
         {/* </Suspense> */}
-        <ReactQueryProvider>
-          <ConfigStoreProvider serverState={houseSettings}>
-            <section id='ib-main-content' className='container-fluid' role='main'>
-              {/* <Nav /> */}
-              {children}
-            </section>
-          </ConfigStoreProvider>
-        </ReactQueryProvider>
+        <ConfigStoreProvider serverState={houseSettings}>
+          <section id='ib-main-content' className='container-fluid' role='main'>
+            {/* <Nav /> */}
+            {children}
+          </section>
+        </ConfigStoreProvider>
         {/* <Suspense fallback={<Skeleton count={5} />}> */}
         <PremiumFooter />
         {/* </Suspense> */}

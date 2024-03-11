@@ -1,6 +1,6 @@
 'use client';
 
-import { useConfigStore } from '@/providers/configStoreProvider';
+import { useConfigStore } from '@/providers/appConfig/provider';
 
 function ClientComponent() {
   const state = useConfigStore(state => state);

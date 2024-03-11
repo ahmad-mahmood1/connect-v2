@@ -1,8 +1,9 @@
 export const dynamic = 'force-dynamic';
 
 import CatalogNestedComponnent from '@/components/catalog/CatalogNestedComponnent';
-import { getCatalog } from '@/network/services/catalog';
-import { CatalogStoreProvider } from '@/providers/catalogStoreProvider';
+import LotList from '@/components/common/algolia/lot-list';
+import { CatalogStoreProvider } from '@/providers/catalog/provider';
+import { getCatalog } from '@/services/catalog';
 
 const Catalog = async ({ params }) => {
   const filters = `catalogRef:${params.catalog}`;
@@ -11,7 +12,7 @@ const Catalog = async ({ params }) => {
     <>
       <CatalogStoreProvider serverState={{ product: data }}>
         <h1>Catalog: {params.catalog}</h1>
-        {/* <LotList filters={filters}></LotList> */}
+        <LotList filters={filters}></LotList>
         <CatalogNestedComponnent />
       </CatalogStoreProvider>
     </>

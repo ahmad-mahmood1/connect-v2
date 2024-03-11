@@ -35,9 +35,6 @@ const Test = async () => {
 
       <Link href='/'>Go to /</Link>
       <hr />
-      <Link href='/test/routeA'>Go to Route A </Link>
-      <hr />
-      <Link href='/test/routeB'>Go to Route B </Link>
     </>
   );
 };

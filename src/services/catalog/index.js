@@ -1,4 +1,4 @@
-import { customFetch } from '../fetch';
+import { customFetch } from '../client/fetch';
 
 export const getCatalog = async () => {
   const data = await customFetch({

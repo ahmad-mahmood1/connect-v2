@@ -1,5 +1,5 @@
 import { cookies, headers } from 'next/headers';
-import { customFetch } from '../fetch';
+import { customFetch } from '../client/fetch';
 
 export const fetchSessionInfo = async () => {
   const allCookies = cookies().toString();

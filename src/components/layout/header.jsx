@@ -1,5 +1,5 @@
-import { getPremiumHouseData } from '@/network/services/appConfigs';
-import { extractMetadataFromHTML } from '@/utils';
+import { extractMetadataFromHTML } from '@/lib/utils';
+import { getPremiumHouseData } from '@/services/app';
 
 const PremiumHeader = async () => {
   let premiumCssLinks = [];
